@@ -17,6 +17,12 @@ module Hutch
       Hutch::Config.cli = true
       parse_options(argv)
 
+      if Hutch::Config.daemonise
+        if Hutch::Config.logfile == $stdout
+          Hutch::Config.logfile = "log/hutch.log"
+        end
+      end
+
       daemonise_process
 
       write_pid if Hutch::Config.pidfile
@@ -190,6 +196,10 @@ module Hutch
 
         opts.on('--pidfile PIDFILE', 'Pidfile') do |pidfile|
           Hutch::Config.pidfile = pidfile
+        end
+
+        opts.on('--logfile LOGFILE', 'Logfile') do |pidfile|
+          Hutch::Config.logfile = logfile
         end
 
         opts.on('--only-group GROUP', 'Load only consumers in this group') do |group|

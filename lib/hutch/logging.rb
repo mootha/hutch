@@ -11,7 +11,7 @@ module Hutch
 
     def self.setup_logger
       require 'hutch/config'
-      @logger = Logger.new($stdout).tap do |l|
+      @logger = Logger.new(Hutch::Config.logfile).tap do |l|
         l.level = Hutch::Config.log_level
         l.formatter = HutchFormatter.new
       end

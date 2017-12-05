@@ -161,6 +161,7 @@ module Hutch
         mq_tls_key: nil,
         mq_tls_ca_certificates: nil,
         uri: nil,
+        logfile: $stdout,
         log_level: Logger::INFO,
         client_logger: nil,
         require_paths: [],
