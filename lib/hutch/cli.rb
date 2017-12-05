@@ -1,3 +1,5 @@
+$stdout.sync = true
+
 require 'optparse'
 
 require 'hutch/logging'
@@ -12,6 +14,7 @@ module Hutch
     # Run a Hutch worker with the command line interface.
     def run(argv = ARGV)
       Hutch::Config.initialize
+      Hutch::Config.cli = true
       parse_options(argv)
 
       daemonise_process

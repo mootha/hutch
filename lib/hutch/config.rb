@@ -173,7 +173,8 @@ module Hutch
         tracer: Hutch::Tracers::NullTracer,
         namespace: nil,
         pidfile: nil,
-        serializer: Hutch::Serializers::JSON
+        serializer: Hutch::Serializers::JSON,
+        cli: false
       })
     end
 

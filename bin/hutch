@@ -3,6 +3,12 @@
 require_relative '../lib/hutch'
 require_relative '../lib/hutch/cli'
 
-cli = Hutch::CLI.new
-cli.run(ARGV)
-
+begin
+  cli = Hutch::CLI.new
+  cli.run(ARGV)
+rescue => e
+  raise e if $DEBUG
+  STDERR.puts e.message
+  STDERR.puts e.backtrace.join("\n")
+  exit 1
+end
