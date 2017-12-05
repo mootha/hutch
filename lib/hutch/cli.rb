@@ -198,7 +198,7 @@ module Hutch
           Hutch::Config.pidfile = pidfile
         end
 
-        opts.on('--logfile LOGFILE', 'Logfile') do |pidfile|
+        opts.on('--logfile LOGFILE', 'Logfile') do |logfile|
           Hutch::Config.logfile = logfile
         end
 
